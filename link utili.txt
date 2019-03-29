@@ -1,0 +1,53 @@
+Spiegazione di WEB SERVICES:
+https://www.addlance.com/blog/web-service/
+https://italiancoders.it/introduzione-a-rest/
+https://www.html.it/guide/restful-web-services-la-guida/
+
+Datasource classname da inserire su JDBC CONNECTION POOLS di PAYARA:
+com.mysql.cj.jdbc.MysqlDataSource
+https://stackoverflow.com/questions/27785324/classnotfoundexception-com-mysql-jdbc-jdbc2-optional-mysqldatasource
+
+Libreria PURE CSS:
+https://purecss.io/
+
+Validatore JSON:
+https://jsonformatter.curiousconcept.com/
+
+Tutorial JSON su W3Schools;
+https://www.w3schools.com/js/js_json_intro.asp
+
+Free WebServices
+http://free-web-services.com/
+
+https://www.mrwebmaster.it/java/guida-java/
+https://www.html.it/pag/50140/metodi-statici-static-e-metodi-di-istanza/
+
+https://javaee.github.io/tutorial/servlets.html#BNAFD
+https://javaee.github.io/javaee-spec/Specifications
+https://javaee.github.io/
+https://books.google.it/books?id=HbJoDwAAQBAJ&pg=PT48&lpg=PT48&dq=Identificare+i+metodi+per+impedire+accessi+non+autorizzati+ai+dati,+quali:+nome+utente,+password,+PIN,+cifratura,+autenticazione+a+pi%C3%B9+fattori.&source=bl&ots=Fsv6yyugqk&sig=ACfU3U3dJAqPSfUOLVZoqueDvQUkdOdrJw&hl=it&sa=X&ved=2ahUKEwjV57KDoO3gAhVBJlAKHTpuAOUQ6AEwAnoECAgQAQ#v=onepage&q=Identificare%20i%20metodi%20per%20impedire%20accessi%20non%20autorizzati%20ai%20dati%2C%20quali%3A%20nome%20utente%2C%20password%2C%20PIN%2C%20cifratura%2C%20autenticazione%20a%20pi%C3%B9%20fattori.&f=false
+
+https://askubuntu.com/questions/711016/slow-boot-a-start-job-is-running-for-dev-disk-by
+
+https://www.ilsoftware.it/articoli.asp?tag=Come-funziona-uno-switch-e-a-cosa-serve-le-funzionalita-piu-importanti_15150
+http://www.edutecnica.it/
+https://www.w3schools.com/js/default.asp
+https://docs.oracle.com/javase/tutorial/
+https://jsonplaceholder.typicode.com/
+
+https://jakarta.ee/
+
+http://www.dis.uniroma1.it/~liberato/gestionale/statici/statici.html
+
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
