@@ -5,8 +5,15 @@
  */
 package it.ciacformazione.cloud.business;
 
+import it.ciacformazione.cloud.Configuration;
 import it.ciacformazione.cloud.entity.Utente;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,11 +41,20 @@ public class UtenteStore {
     /**
      * Insert o Update Utente su DB
      *
-     * @param utente
+     * @param a
      * @return
      */
-    public Utente save(Utente utente) {
-        return em.merge(utente);
+    public Utente save(Utente a) {
+        Utente utente= em.merge(a);
+        Path path = Paths.get(Configuration.DOCUMENT_FOLDER + utente.getUser());
+        if (Files.notExists(path, LinkOption.NOFOLLOW_LINKS)) {
+            try {
+                Files.createDirectory(path);
+            } catch (IOException ex) {
+                throw new EJBException("save user failed...");
+            }
+        }
+        return utente;
     }
     
     /**

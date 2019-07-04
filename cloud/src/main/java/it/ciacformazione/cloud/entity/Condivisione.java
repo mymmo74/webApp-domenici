@@ -14,8 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,22 +22,24 @@ import javax.persistence.Table;
  * @author tss
  */
 @Entity
-@Table(name = "t_tags")
-public class Tag implements Serializable {
+@Table(name = "t_condivisioni")
+public class Condivisione implements Serializable {
     @Id
-    @Column(name = "id_tag")
+    @Column(name = "id_condivisione")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "nome_tag")
-    private String nome_tag;
+    @JsonbTransient
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_utente", referencedColumnName = "id_utente")
+    private Utente utente;
     
     @JsonbTransient
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_documento", referencedColumnName = "id_documento")
     private Documento doc;
 
-    public Tag() {
+    public Condivisione() {
     }
 
     public int getId() {
@@ -50,12 +50,12 @@ public class Tag implements Serializable {
         this.id = id;
     }
 
-    public String getNome_tag() {
-        return nome_tag;
+    public Utente getUtente() {
+        return utente;
     }
 
-    public void setNome_tag(String nome_tag) {
-        this.nome_tag = nome_tag;
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
 
     public Documento getDoc() {
@@ -68,8 +68,8 @@ public class Tag implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + this.id;
+        int hash = 7;
+        hash = 89 * hash + this.id;
         return hash;
     }
 
@@ -84,7 +84,7 @@ public class Tag implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Tag other = (Tag) obj;
+        final Condivisione other = (Condivisione) obj;
         if (this.id != other.id) {
             return false;
         }
@@ -93,7 +93,7 @@ public class Tag implements Serializable {
 
     @Override
     public String toString() {
-        return "Tag{" + "id=" + id + ", nome_tag=" + nome_tag + ", doc=" + doc + '}';
+        return "Condivisione{" + "id=" + id + ", utente=" + utente + ", doc=" + doc + '}';
     }
     
     
