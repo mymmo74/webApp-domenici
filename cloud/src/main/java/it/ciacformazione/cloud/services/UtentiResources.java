@@ -9,6 +9,7 @@ import it.ciacformazione.cloud.business.UtenteStore;
 import it.ciacformazione.cloud.entity.Utente;
 import java.net.URI;
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -43,6 +44,7 @@ public class UtentiResources {
     }
     
     @GET
+    @RolesAllowed({"users"})
     public List<Utente> findAll() {
         return store.all();
     }
