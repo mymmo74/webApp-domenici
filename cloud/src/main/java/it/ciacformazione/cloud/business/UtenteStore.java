@@ -13,9 +13,12 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -75,5 +78,31 @@ public class UtenteStore {
     public void remove(int id) {
         Utente toremove = em.find(Utente.class, id);
         em.remove(toremove);
+    }
+    
+    public Optional<Utente> findByUsr(String usr) {
+        try {
+            Utente p = em.createQuery("select e from Utente e "
+                    + "where e.user= :usr", Utente.class)
+                    .setParameter("usr", usr)
+                    // se non è messo nel try catch se non trova il dato va in errore
+                    .getSingleResult();
+            return Optional.of(p);
+        } catch (NoResultException | NonUniqueResultException ex) {
+            return Optional.empty();
+        }
+    }
+    
+    public Optional<Utente> login(String usr, String pwd) {
+        try {
+            Utente p = em.createQuery("select e from Utente e "
+                    + "where e.user= :usr and e.pw= :pwd", Utente.class)
+                    .setParameter("usr", usr)
+                    .setParameter("pwd", pwd)
+                    .getSingleResult();
+            return Optional.of(p);
+        } catch (NoResultException | NonUniqueResultException ex) {
+            return Optional.empty();
+        }
     }
 }

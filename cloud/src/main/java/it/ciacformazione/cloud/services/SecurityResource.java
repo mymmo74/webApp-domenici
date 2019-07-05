@@ -41,25 +41,28 @@ public class SecurityResource {
 
         try {
             String token = JWTManager.generateJWTString("token.json");
-            System.out.println("------------ generated token -------------------");
-            System.out.println("------------ curl command for test -------------");
-            System.out.println("curl -i -H'Authorization: Bearer " + token + "' http://localhost:8080/mycloud/resources/users");
+            System.out.println("------------ generated token ----------------");
+            System.out.println("------------ curl command for test ----------");
+            System.out.println("curl -i -H'Authorization: Bearer " + token 
+                    + "' http://localhost:8080/cloud/resources/utenti");
         } catch (Exception ex) {
-            Logger.getLogger(SecurityResource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecurityResource.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
         return Response.ok().build();
     }
 
-    // metodo che chiamiamo con il login
-    /*
+    
     @PermitAll
     @POST
-    public Response login(@FormParam("usr") String usr, @FormParam("pwd") String pwd) {
+    public Response login(@FormParam("usr") String usr, 
+            @FormParam("pwd") String pwd) {
         Optional<Utente> p = store.login(usr, pwd);
         p.ifPresent(a -> System.out.println(a.getNome()));
         JsonObject token = Json.createObjectBuilder().add("token",
-                JWTManager.generateJWTString("token.json", p.get().getUsr())).build();
+                JWTManager.generateJWTString("token.json", 
+                        p.get().getUser())).build();
         return p.isPresent() ? Response.ok().entity(token).build()
                 : Response.status(Response.Status.UNAUTHORIZED).build();
-    }*/
+    }
 }
