@@ -1,0 +1,30 @@
+.col-lg-1{
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
+}
+
+.col-lg-10{
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
+}
+
+
+.badge-warning{
+    height: 50x;
+}
+
+
+
+.col-lg-2{
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
+}
+
+
+#barraCond,#barraCond2,#barraCond3,#barraCond4,#barraCond5{
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+}
