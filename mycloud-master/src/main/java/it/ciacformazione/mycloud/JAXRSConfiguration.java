@@ -37,6 +37,7 @@ public class JAXRSConfiguration extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.airhacks.ping.boundary.PingResource.class);
+        resources.add(it.ciacformazione.mycloud.boundary.CondivisioneResource.class);
         resources.add(it.ciacformazione.mycloud.boundary.DocumentiResource.class);
         resources.add(it.ciacformazione.mycloud.boundary.SecurityResource.class);
         resources.add(it.ciacformazione.mycloud.boundary.UsersResource.class);

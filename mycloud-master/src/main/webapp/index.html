@@ -23,11 +23,13 @@ and open the template in the editor.
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Login')">Login</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Registrati')">Registrati</button>
         </div>
-
+        
+        
         <div style="margin-left:200px">
             <div class="w3-padding"></div>
-            <div id="inizio" style="display:block">INIZIO poi via</div>
-
+            <div id="inizio" style="display:block;margin-left:15px">Effettuare Login o Registrarsi</div>
+            
+            <!--FORM LOGIN-->
             <div id="Login" class="w3-container tab" style="display:none">
                 <h2>Inserisci i tuoi dati di LOGIN</h2>
                 <form id="logForm" class="pure-form pure-form-aligned">
@@ -51,7 +53,8 @@ and open the template in the editor.
                     </fieldset>
                 </form>
             </div>
-
+            
+            <!--FORM REGISTRAZIONE-->
             <div id="Registrati" class="w3-container tab" style="display:none">
                 <h2>Effettua la registrazione per accedere al servizio</h2>
                 <form id="regForm" class="pure-form pure-form-aligned">
@@ -95,25 +98,7 @@ and open the template in the editor.
             </div>
 
         </div>
-
-<!--        <a href="upload.html">Carica documento</a>
-        <br />
-        <hr />
-        <br />
-
-        <main>
-
-                        <header>
-                            <h2>I tuoi documenti</h2>
-                        </header>
-
-            <article id="docs">
-
-            </article>
-        </main>
-        js per gestire la registrazione
-
-        <script src="./js/index.js" type="module"></script>-->
+        <!--SCRIPT per selezione FORM-->
         <script>
             function openTab(evt, tabName) {
                 var i, x, tablinks;
@@ -130,6 +115,7 @@ and open the template in the editor.
                 evt.currentTarget.className += " w3-red";
             }
         </script>
+        <!--Scripts esterni per Registrazione nuovo utente e Login-->
         <script src="js/reg.js" type="text/javascript"></script>
         <script src="js/login.js" type="text/javascript"></script>
     </body>

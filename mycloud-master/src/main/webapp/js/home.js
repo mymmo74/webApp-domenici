@@ -1,3 +1,5 @@
+
+
 function visualizzaDocumenti() {
     fetch("http://localhost:8080/mycloud-master/resources/documents",
             {
@@ -6,65 +8,47 @@ function visualizzaDocumenti() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-//                body: frm,
                 method: "get"
             })
             .then(response => response.json())
             .then(json => {
                 console.log(json);
-                document.querySelector("#contenitoreDocs").innerHTML = "";
-                creaTabellaDaJson(json, "nomeFile,id,titolo", "tab1", "tabella", "#contenitoreDocs");
+                //prelevati i dati una funzione da implementare si occupa della loro visualizzazione
+                document.querySelector("#contenitoreDocs").innerHTML = json;
+
             })
-//            .then(response => {
-//                document.querySelector("#contenitoreDocs").innerHTML = "";
-//                creaTabellaDaJson(response(), "id,titolo,nomeFile,tags", "tab1", "tabella", "#contenitore");
-//            })
-//            .then(response => {
-//                if (response.status === 200) {
-//                    document.querySelector("#contenitoreDocs").innerHTML = response;
-//                    creaTabellaDaJson(response.json(), "id,titolo,nomeFile,tags", "tab1", "tabella", "#contenitore");
-//                } else {
-//                    console.log(response);
-//                }
-//            })
+
             .catch(res => console.error(res));
+    
 }
 
-function creaTabellaDaJson(oggJson, listaCampi, idTabella, classeTabella, contenitore = "body") {
-    let tabella = document.createElement("table");
-    tabella.id = idTabella;
-    tabella.className = classeTabella;  //da verif
-
-    let vCampi = listaCampi.split(",");
-
-    //riga intestazione
-    let tHead = document.createElement("thead");
-    let riga = document.createElement("tr");
-    vCampi.forEach(function (campo, i) {
-        let th = document.createElement("th");
-        th.innerHTML = campo;
-        riga.append(th);
-    });
-    tabella.append(tHead);
-    tHead.append(riga);
-
-    let tBody = document.createElement("tBody");
-    oggJson.forEach(function (record, i) {
-        let rigaRecord = document.createElement("tr");
-        vCampi.forEach(function (campo, j) {
-            let cella = document.createElement("td");
-            cella.innerHTML = oggJson[i][campo];  //record[campo]
-            rigaRecord.append(cella);
-        });
-        tBody.append(rigaRecord);
-    });
-
-    tabella.append(tBody);
-
-    //append della tabella al contenitore
-    document.querySelector(contenitore).append(tabella);
+/**
+ * Implementare funzione per la condivisione del documento con un utente
+ * selezionato
+ * Chiamata a servizio REST per la creazione della condivisione
+ */
+function shareDocument(){
+    // TODO
 }
 
+
+/**
+ * Implementare Funzione per la connessione al servizio REST
+ * per la visualizzione dei file Condivisi
+ * da altri utenti
+ */
+function visualizzaDocumentiCondivisi() {
+    // TODO
+}
+
+/**
+ * Implementazione Funzione per la connessione al servizio REST
+ * per permette l'inserimento di uno o più tag 
+ * al documento selezionato
+ */
+function tagDocumento() {
+    // TODO
+}
 
 function caricaFile() {
     let frm = new FormData();
@@ -86,4 +70,68 @@ function caricaFile() {
                 }
             })
             .catch(res => console.error(res));
+    
+    /* TODO
+    Implementare funzione per verificare la dimensione del file che si
+    vuole caricare con la limitazione che il singolo file sia <=100 MB */
+}
+
+/**
+ * Implementazione Funzione per la ricerca
+ * 
+ */
+function searchDocument() {
+    // Rilevazione tipo di ricerca
+    if (document.getElementById("option-one").checked) {
+        searchByName();
+    } else {
+        searchbyTag();
+    }
+}
+
+/**
+ * Implementazione funzione per la ricerca del documento/i
+ * avendo inserito un nome
+ * La funzione chiamerà il servizio REST per la verifica
+ * della presenza nella tabella Documenti
+ */
+function searchByName(){
+    // TODO
+}
+
+/**
+ * Implementazione funzione per la ricerca del documento/i
+ * avendo inserito un tag
+ * La funzione chiamerà il servizio REST per la verifica
+ * della presenza nella tabella Documenti
+ */
+function searchbyTag(){
+    // TODO
+}
+
+
+/**
+ * Implementazione funzione per la connessione al relativo servizio REST
+ * per l'eliminazione dal cloud di uno o più documenti
+ */
+function deleteDocument(){
+    // TODO
+}
+
+/**
+ * Implementazione funzione per la connessione al relativo servizio REST
+ * per effettuare il download di uno o più file presenti sul cloud
+ */
+function downloadFile(){
+    // TODO
+}
+
+/**
+ * Implementazione funzione per la procedura di logout
+ * dell'utente corrente
+ * e richiamo della pagina di Login/Registrazione
+ */
+function logoutUser(){
+    //TODO
+    document.location = "index.html";
 }

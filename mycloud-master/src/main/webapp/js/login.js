@@ -1,11 +1,7 @@
-//let frmLog = document.querySelector('#logForm');
-//frmLog.addEventListener('submit', t => onSubmit(t));
-
 function login() {
     let log_user = document.getElementById('log_user').value;
     let log_password = document.getElementById('log_password').value;
 
-//    t.preventDefault();
 
     if ((log_user !== "") & (log_user !== "")) {
 
@@ -24,15 +20,15 @@ function login() {
                         'usr': log_user,
                         'pwd': log_password
                     },
-//                    body: JSON.stringify(credenziali),
-                    
+
                 })
                 .then(response => response.json())
                 .then(json => {
                     console.log(json);
                     localStorage.setItem('token', json.token);
-//                    document.location = 'index.html';
+                    // Implementazione del messaggio di benvenuto all'utente
                     document.location = "home.html"
+
                 })
                 .catch(res => console.error(res));
 

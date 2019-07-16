@@ -1,5 +1,3 @@
-//let frm = document.querySelector('#regForm');
-//frm.addEventListener('submit', e => onSubmit(e));
 
 function registrati() {
     let reg_nome = document.getElementById('nome').value;
@@ -39,9 +37,6 @@ function registrati() {
                     .then(res => {
                         if (res.status === 200) {
                             window.alert('Registrazione avvenuta con successo');
-//                            let esito = document.getElementById("esitoReg");
-//                            esito.classList.add("bg-success");
-//                            esito.innerHTML = "Registrazione Avvenuta";
 
                         }
                     })

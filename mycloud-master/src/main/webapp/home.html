@@ -24,61 +24,106 @@ and open the template in the editor.
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'search', 5)">Cerca documento</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'deleteDocs', 6)">Cancella documento</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'downDocs', 7)">Scarica documento</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'downDocs', 8)">Log out</button>
         </div>
 
-        <div style="margin-left:200px">
-            <div class="w3-padding"></div>
-            <div id="ownDocs" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Elenco dei propri documenti caricati</h2>
-                <div id="contenitoreDocs" ></div>
 
+        <div class="w3-padding"></div>
+        <!--PROPRI DOCUMENTI-->
+        <div id="ownDocs" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Elenco dei propri documenti caricati</h2>
+            <div id="contenitoreDocs" ></div>
+            <div class="pure-controls">
+                <button class="pure-button pure-button-primary" onclick="shareDocument()">Condividi</button>
             </div>
-
-            <div id="shareDocs" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Elenco dei documenti condivisi da altro utente</h2>
-                <!--mostra i documenti condivisi-->
-            </div>
-
-            <div id="upDocs" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Caricamento di un documento</h2>
-                <form action="#" id="upload"
-                      method="post" enctype="multipart/form-data" >
-
-                    <p>
-                        <input type="text" name="titolo" id="titolo" />
-                    </p>
-
-                    <p>
-                        Select a file : <input type="file" name="file" id="file" size="45" />
-                    </p>
-
-                    <input type="button" value="Invia" onclick="caricaFile()"/>
-                </form>
-            </div>
-
-            <div id="tagFiles" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Inserimento etichette su documenti</h2>
-                <!--gestione tags-->
-            </div>
-
-            <div id="search" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Ricerca</h2>
-                <!--ricerca by tag e by name-->
-            </div>
-
-            <div id="deleteDocs" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Cancellazione documenti</h2>
-                <!--delete documents-->
-            </div>
-
-            <div id="downDocs" class="w3-container tab" style="display:none;margin-left:15px">
-                <h2>Scaricamento di un documento</h2>
-                <!--download documents-->
-            </div>
-
-
 
         </div>
+
+        <!--DOCUMENTI CONDIVISI-->
+        <div id="shareDocs" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Elenco dei documenti condivisi da altro utente</h2>
+            <!--MOSTRA DOCUMENTI CONDIVISI
+            Implementare interfaccia tabellare in cui vengono mostrati
+            i file condivisi e l'utente condivisore-->
+            <!--TODO-->
+            <div id="contenitoreShareDocs" ></div>
+        </div>
+
+        <!--UPLOAD DOCUMENTO-->
+        <div id="upDocs" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Caricamento di un documento</h2>
+            <form action="#" id="upload"
+                  method="post" enctype="multipart/form-data" >
+
+                <p>
+                    <input type="text" name="titolo" id="titolo" />
+                </p>
+
+                <p>
+                    Select a file : <input type="file" name="file" id="file" size="45" />
+                </p>
+
+                <input type="button" value="Invia" onclick="caricaFile()"/>
+
+            </form>
+        </div>
+
+        <!--TAG DOCUMENTO-->
+        <div id="tagFiles" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Inserimento etichette su documenti</h2>
+            <!--GESTIONE TAGS
+            implementazione tabellare documenti su cloud storage con la 
+            possibilità di inserimento tags-->
+            <!--TODO-->
+        </div>
+
+        <!--RICERCA-->
+        <div id="search" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Ricerca</h2>
+            <!--BY TAG e BY NAME-->
+            <form class="pure-form">
+                <input type="text" class="pure-input-rounded">
+                <button class="pure-button" onclick="searchDocument()">Search</button>
+                <label for="option-one" class="pure-radio">
+                    <input id="option-one" type="radio" name="optionsRadios" value="option1" checked>
+                    Nome file
+                </label>
+
+                <label for="option-two" class="pure-radio">
+                    <input id="option-two" type="radio" name="optionsRadios" value="option2">
+                    Tag
+                </label>
+            </form>
+
+            <!--Implementazione di una tabella con il risultato della ricerca-->
+            <!--TODO-->
+
+        </div>
+
+        <!--CANCELLAZIONE DOCUMENTO-->
+        <div id="deleteDocs" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Cancellazione documenti</h2>
+            <!--DELETE DOCUMENTS
+            Implementazione tabellare elenco documenti con la possibilità
+            di selezione per la cancellazione-->
+            <div id="contenitoreErasableDocs" ></div>
+            <!--TODO-->
+        </div>
+
+        <!--SCARICAMENTO DOCUMENTO-->
+        <div id="downDocs" class="w3-container tab" style="display:none;margin-left:215px">
+            <h2>Scaricamento di un documento</h2>
+            <!--DOWNLOAD DOCUMENT
+            Implementazione tabellare elenco documenti con la possibilità
+            di selezione per il download di uno o più file-->
+        </div>
+
+        <!--LOGOUT UTENTE-->
+        <div id="downDocs" class="w3-container tab" style="display:none;margin-left:215px">
+            <!--LOGOUT
+            Chiamata a procedura di Logout -->
+        </div>
+
         <script>
             function openTab(evt, tabName, Indice) {
                 var i, x, tablinks
@@ -94,9 +139,19 @@ and open the template in the editor.
                 document.getElementById(tabName).style.display = "block";
                 evt.currentTarget.className += " w3-red";
 
-                if (Indice === 1) {
-                    visualizzaDocumenti();
+                switch (Indice) {
+                    case 1:
+                        visualizzaDocumenti();
+                        break;
+                    case 2:
+                        visualizzaDocumentiCondivisi();
+                        break;
+                    case 8:
+                        logoutUser();
+                        break;
                 }
+
+
             }
         </script>
         <script src="js/home.js" type="text/javascript"></script>
